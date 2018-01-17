@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>User List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="oc-table">
+      <div class="theader">
+        <div class="margin-r">User Name</div>
+        <div class="margin-r">Name</div>
+        <div class="margin-r">Email</div>
+
+        <div class="margin-r" style="max-width: 40px;"></div>
+        <div class="margin-r" style="max-width: 40px;"></div>
+      </div>
+
+      <div class="oc-list-content y-scroll" [ocFsceenlist]="exch">
+        <div class="tbodytr" *ngFor="let item of items">
+
+          <div class="margin-r" >{{item.username}}</div>
+          <div class="margin-r" >{{item.name}}</div>
+          <div class="margin-r" >{{item.email}}</div>
+
+          <div class="margin-r" style="max-width: 40px;">
+            <button class="blue-grey darken-2 non-shadow"
+                    (click)="edit(item)"
+                    mat-mini-fab><mat-icon>edit</mat-icon></button>
+          </div>
+          <div class="margin-r" style="max-width: 40px;">
+            <button class="non-shadow"
+                    (click)="delete(item)"
+                    color="warn"
+                    mat-mini-fab><mat-icon>delete</mat-icon>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>
