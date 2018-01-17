@@ -7,23 +7,23 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {IUser} from '../../service/user.service';
 
 import {AlbumService, IAlbum} from '../../service/album.service';
+import {IPost, PostService} from "../../service/post.service";
 
 @Component({
-  selector: 'app-albumlist-dialog',
-  templateUrl: 'album-list.dialog.html'
+  selector: 'app-postlist-dialog',
+  templateUrl: 'post-list.dialog.html'
 })
-export class AlbumListDialogComponent implements OnInit {
+export class PostListDialogComponent implements OnInit {
 
-  private items: Array<IAlbum> = [];
-  constructor(public dialogRef: MatDialogRef<AlbumListDialogComponent>,
+  private items: Array<IPost> = [];
+  constructor(public dialogRef: MatDialogRef<PostListDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public user: IUser,
-              private albumService: AlbumService) {
+              private postService: PostService) {
   }
 
 
   ngOnInit(): void {
-
-    this.albumService.list(this.user.id).subscribe(res => {
+    this.postService.list(this.user.id).subscribe(res => {
       this.items = res;
     });
   }
