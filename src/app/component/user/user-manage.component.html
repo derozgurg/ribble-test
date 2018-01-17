@@ -1,7 +1,4 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>User List</mat-card-title>
-  </mat-card-header>
   <mat-card-content>
     <div class="oc-table">
       <div class="theader">
@@ -9,6 +6,8 @@
         <div class="margin-r">Name</div>
         <div class="margin-r">Email</div>
 
+        <div class="margin-r" style="max-width: 40px;"></div>
+        <div class="margin-r" style="max-width: 40px;"></div>
         <div class="margin-r" style="max-width: 40px;"></div>
         <div class="margin-r" style="max-width: 40px;"></div>
       </div>
@@ -21,13 +20,23 @@
           <div class="margin-r" >{{item.email}}</div>
 
           <div class="margin-r" style="max-width: 40px;">
-            <button class="blue-grey darken-2 non-shadow"
+            <button color="primary"
+                    (click)="openAlbum(item)"
+                    mat-mini-fab><mat-icon>album</mat-icon></button>
+          </div>
+          <div class="margin-r" style="max-width: 40px;">
+            <button color="primary"
+                    (click)="openAlbum(item)"
+                    mat-mini-fab><mat-icon>local_post_office</mat-icon></button>
+          </div>
+
+          <div class="margin-r" style="max-width: 40px;">
+            <button color="accent"
                     (click)="edit(item)"
                     mat-mini-fab><mat-icon>edit</mat-icon></button>
           </div>
           <div class="margin-r" style="max-width: 40px;">
-            <button class="non-shadow"
-                    (click)="delete(item)"
+            <button (click)="delete(item)"
                     color="warn"
                     mat-mini-fab><mat-icon>delete</mat-icon>
             </button>
