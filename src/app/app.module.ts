@@ -5,10 +5,10 @@ import { AppComponent } from './app.component';
 import {
   MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule,
   MatSelectModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSnackBarModule,
   MatTableModule,
   MatTabsModule, MatToolbarModule
-} from '@angular/material';
+} from "@angular/material";
 import {SpiModule} from 'spi-ng2';
 import {UserManageComponent} from './component/user/user-manage.component';
 import {UserService} from './service/user.service';
@@ -33,7 +33,8 @@ const matarialImports = [
   MatInputModule,
   MatIconModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

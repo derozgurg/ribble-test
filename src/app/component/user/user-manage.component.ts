@@ -3,7 +3,7 @@
  */
 import {Component, OnInit} from '@angular/core';
 import {IUser, UserService} from '../../service/user.service';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {AlbumListDialogComponent} from '../album/album-list.dialog';
 import {PostListDialogComponent} from '../post/post-list.dialog';
 import {EditUserDialogComponent} from './user-edit.dialog';
@@ -15,7 +15,8 @@ import {EditUserDialogComponent} from './user-edit.dialog';
 export class UserManageComponent implements OnInit {
   private items: Array<IUser> = [];
 
-  constructor(private userService: UserService, private dialog: MatDialog) {
+  constructor(private userService: UserService, private dialog: MatDialog,
+              public snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -23,8 +24,13 @@ export class UserManageComponent implements OnInit {
   }
 
   initList() {
+    this.snackBar.open('Loading...', '', {
+      duration: 2000,
+    });
+
     this.userService.list().subscribe(res => {
       this.items = res;
+      this.snackBar.dismiss();
     });
   }
 
@@ -40,9 +46,20 @@ export class UserManageComponent implements OnInit {
     });
   }
 
-  create(){
+  create() {
     this.edit(<IUser>{
       username: '', name: '', email: '', phone: ''
+    });
+  }
+
+  delete(user: IUser) {
+    this.snackBar.open('Deleting...', '', {
+      duration: 2000,
+    });
+
+    this.userService.delete(user.id).subscribe(res => {
+      this.initList();
+      this.snackBar.dismiss();
     });
   }
 
@@ -52,7 +69,7 @@ export class UserManageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result){
+      if (result) {
         this.initList();
       }
     });
