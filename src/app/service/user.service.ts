@@ -54,4 +54,8 @@ export class UserService {
   post(item: IUser) {
     return this.httpClient.post(this.url, item);
   }
+
+  put(item: IUser) {
+    return this.httpClient.put(`${this.url}/${item.id}`, item);
+  }
 }

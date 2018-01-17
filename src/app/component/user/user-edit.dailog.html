@@ -1,0 +1,42 @@
+<mat-toolbar >
+  <span>{{title}}</span>
+</mat-toolbar>
+
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="User Name"
+        formControlName="username" >
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="name" >
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        type="email"
+        placeholder="EMail"
+        formControlName="email" >
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Phone"
+        formControlName="phone" >
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions style="">
+  <button
+    [disabled]="!form.valid"
+    color="primary"
+    mat-raised-button
+    (click)="save()" tabindex="2">save</button>
+  <button mat-raised-button (click)="cancel()" tabindex="-1">Cancel</button>
+</div>

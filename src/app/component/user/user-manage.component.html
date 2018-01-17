@@ -21,15 +21,14 @@
 
           <div class="margin-r" style="max-width: 40px;">
             <button color="primary"
-                    (click)="openPosts(item)"
+                    (click)="openAlbums(item)"
                     mat-mini-fab><mat-icon>album</mat-icon></button>
           </div>
           <div class="margin-r" style="max-width: 40px;">
             <button color="primary"
-                    (click)="openAlbums(item)"
+                    (click)="openPosts(item)"
                     mat-mini-fab><mat-icon>local_post_office</mat-icon></button>
           </div>
-
           <div class="margin-r" style="max-width: 40px;">
             <button color="accent"
                     (click)="edit(item)"
@@ -41,10 +40,8 @@
                     mat-mini-fab><mat-icon>delete</mat-icon>
             </button>
           </div>
-
         </div>
       </div>
     </div>
-
   </mat-card-content>
 </mat-card>

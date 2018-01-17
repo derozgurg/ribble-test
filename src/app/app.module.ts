@@ -8,7 +8,7 @@ import {
   MatSidenavModule,
   MatTableModule,
   MatTabsModule, MatToolbarModule
-} from "@angular/material";
+} from '@angular/material';
 import {SpiModule} from 'spi-ng2';
 import {UserManageComponent} from './component/user/user-manage.component';
 import {UserService} from './service/user.service';
@@ -17,7 +17,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PostService} from './service/post.service';
 import {AlbumListDialogComponent} from './component/album/album-list.dialog';
 import {AlbumService} from './service/album.service';
-import {PostListDialogComponent} from "./component/post/post-list.dialog";
+import {PostListDialogComponent} from './component/post/post-list.dialog';
+import {EditUserDialogComponent} from './component/user/user-edit.dialog';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const matarialImports = [
   BrowserAnimationsModule,
@@ -39,16 +41,19 @@ const matarialImports = [
     AppComponent,
     AlbumListDialogComponent,
     PostListDialogComponent,
+    EditUserDialogComponent,
     UserManageComponent
   ],
   imports: [
     ...matarialImports,
+    ReactiveFormsModule,
+    FormsModule,
     BrowserAnimationsModule,
     BrowserModule,
     SpiModule.forRoot(),
     HttpClientModule
   ],
-  entryComponents: [AlbumListDialogComponent, PostListDialogComponent],
+  entryComponents: [AlbumListDialogComponent, PostListDialogComponent, EditUserDialogComponent],
   providers: [UserService, PostService, AlbumService],
   bootstrap: [AppComponent]
 })
